@@ -48,9 +48,9 @@ export function CreateFields() {
 		setFieldSearchText('')
 	}
 
-	const updateFieldValue = (e, id, key) => {
-		let temp = [...selectedFields]
-	}
+	// const updateFieldValue = (e, id, key) => {
+	// 	let temp = [...selectedFields]
+	// }
 
 	const saveTab = (e) => {
 		setSavingTab(true)
@@ -119,7 +119,8 @@ export function CreateFields() {
 											<td style={{padding: '10px 0'}}>{s.description}</td>
 											<td>{s.input_type}</td>
 											<td>{s.options?.join(', ')}</td>
-											<td><input type='checkbox' onChange={(e) => updateFieldValue(e, s.id, "showFieldName")}/></td>
+											{/* <td><input type='checkbox' onChange={(e) => updateFieldValue(e, s.id, "showFieldName")}/></td> */}
+											<td><input type='checkbox' /></td>
 											<td><input type='checkbox' /></td>
 											<td><input type='checkbox' /></td>
 										</tr>
