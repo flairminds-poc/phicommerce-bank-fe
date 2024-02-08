@@ -18,7 +18,6 @@ export function CreateFields() {
 	const [filteredFields, setFilteredFields] = useState([])
 	const [selectedFields, setSelectedFields] = useState([])
 	const [savingTab, setSavingTab] = useState(false)
-	// const [showDependencies, setShowDependencies] = useState(true)
 
 	useEffect(() => {
 		if (location.state && location.state.index >= 0) {
@@ -41,16 +40,30 @@ export function CreateFields() {
 		setFilteredFields(temp.slice(0, 5))
 	}, [fieldSearchText])
 
+	const updateFieldValue = (e, index, key) => {
+		let temp = [...selectedFields]
+		let thisField = temp[index]
+		thisField = {
+			...thisField,
+			[key]: e.target.checked
+		}
+		temp.splice(index, 1, thisField)
+		setSelectedFields(temp)
+	}
+
 	const addField = (field) => {
 		let temp = [...selectedFields]
-		temp.push(field)
+		let thisField = {
+			...field,
+			showFieldName: true,
+            showField: true,
+            showDescription: true,
+            required: false,
+		}
+		temp.push(thisField)
 		setSelectedFields(temp)
 		setFieldSearchText('')
 	}
-
-	// const updateFieldValue = (e, id, key) => {
-	// 	let temp = [...selectedFields]
-	// }
 
 	const saveTab = (e) => {
 		setSavingTab(true)
@@ -88,17 +101,16 @@ export function CreateFields() {
 				</div>
 				<div>
 					<div style={{padding: '1%'}}>
-					<div>
-						<Components.Input type='text' value={fieldSearchText} onChange={e => setFieldSearchText(e.target.value)} placeholder="Search field"/>
-					</div>
-					<div style={{position: 'absolute', zIndex: '1', cursor: 'pointer', backgroundColor: 'white', border: '1px solid #EBEDF4', borderRadius: '5px', transition: 'all 1s ease-in-out'}}>
-						{filteredFields.map(f => {
-							return (
-								<div style={{padding: '5px', width: '200px'}} onClick={() => addField(f)}>{f.display_name}</div>
-							)
-						})}
-					</div>
-					{/* <div style={{float: 'right'}}><Components.Button onClick={() => setShowDependencies(!showDependencies)}>Show Dependencies</Components.Button></div> */}
+						<div>
+							<Components.Input type='text' value={fieldSearchText} onChange={e => setFieldSearchText(e.target.value)} placeholder="Search field"/>
+						</div>
+						<div style={{position: 'absolute', zIndex: '1', cursor: 'pointer', backgroundColor: 'white', border: '1px solid #EBEDF4', borderRadius: '5px', transition: 'all 1s ease-in-out'}}>
+							{filteredFields.map(f => {
+								return (
+									<div style={{padding: '5px', width: '200px'}} onClick={() => addField(f)}>{f.display_name}</div>
+								)
+							})}
+						</div>
 					</div>
 					<table style={{width: '100%', textAlign: 'center'}}>
 						<thead style={{backgroundColor: '#EBEDF4'}}>
@@ -119,10 +131,10 @@ export function CreateFields() {
 											<td style={{padding: '10px 0'}}>{s.description}</td>
 											<td>{s.input_type}</td>
 											<td>{s.options?.join(', ')}</td>
-											{/* <td><input type='checkbox' onChange={(e) => updateFieldValue(e, s.id, "showFieldName")}/></td> */}
-											<td><input type='checkbox' /></td>
-											<td><input type='checkbox' /></td>
-											<td><input type='checkbox' /></td>
+											{/* <td><input type='checkbox' }/></td> */}
+											<td><input type='checkbox' checked={s.showFieldName} onChange={(e) => updateFieldValue(e, i, "showFieldName")} /></td>
+											<td><input type='checkbox' checked={s.showDescription} onChange={(e) => updateFieldValue(e, i, "showDescription")} /></td>
+											<td><input type='checkbox' checked={s.required} onChange={(e) => updateFieldValue(e, i, "required")} /></td>
 										</tr>
 										{s.preRequisites && s.preRequisites.length > 0 &&
 											<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white'}}>

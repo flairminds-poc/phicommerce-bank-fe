@@ -44,6 +44,7 @@ export const master_fields = [{
 		error_message: 'Age has to be greater than 18.'
 	}, {
 		logic: 'and',
+		key: 'value_check',
 		type: 'lesser',
 		value: '70',
 		error_message: 'Age has to be lesser than 70.'

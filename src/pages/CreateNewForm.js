@@ -41,11 +41,11 @@ export function CreateNewForm() {
                             <textarea type='text' placeholder="Enter form description" style={{padding: '5px', outline: 'none', borderRadius: '5px', width: '350px', height: '60px', border: '1px solid black'}} onChange={(e) => updateReduxFormData("form_description", e.target.value)} value={reduxFormData.form_description}/>
                         </div>
                         <div>
-                            <select style={{padding: '5px', cursor: 'pointer', outline: 'none', borderRadius: '5px', width: '200px', border: '1px solid black'}} onChange={(e) => updateReduxFormData("bank_name", e.target.value)}>
-                                <option disabled selected>-- Select Bank --</option>
-                                <option>HDFC</option>
-                                <option>SBI</option>
-                                <option>ICICI</option>
+                            <select defaultValue={reduxFormData.bank_name} style={{padding: '5px', cursor: 'pointer', outline: 'none', borderRadius: '5px', width: '200px', border: '1px solid black'}} onChange={(e) => updateReduxFormData("bank_name", e.target.value)}>
+                                <option disabled selected value={''}>-- Select Bank --</option>
+                                <option value={'HDFC'}>HDFC</option>
+                                <option value={'SBI'}>SBI</option>
+                                <option value={'ICICI'}>ICICI</option>
                             </select>
                         </div>
                     </div>
