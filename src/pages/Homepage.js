@@ -18,6 +18,7 @@ export function Homepage() {
 			}
 		}
 		getFormData()
+    // eslint-disable-next-line
 	}, [])
     return (
         <div style={{margin: 'auto', width: '50%', textAlign: 'center', marginTop: '15%'}}>
