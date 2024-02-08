@@ -124,10 +124,13 @@ export function CreateFields() {
 						</thead>
 						<tbody>
 							{selectedFields && selectedFields.map((s, i) => {
+								let rowspan = 1
+								if (s.preRequisites && s.preRequisites.length > 0) rowspan++
+								if (s.validation && s.validation.length > 0) rowspan++
 								return (
 									<>
 										<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white'}}>
-											<td style={{padding: '10px 0'}} rowSpan={s.preRequisites && s.preRequisites.length > 0 ? 2 : 1}>{s.display_name}</td>
+											<td style={{padding: '10px 0'}} rowSpan={rowspan}>{s.display_name}</td>
 											<td style={{padding: '10px 0'}}>{s.description}</td>
 											<td>{s.input_type}</td>
 											<td>{s.options?.join(', ')}</td>
@@ -137,8 +140,8 @@ export function CreateFields() {
 											<td><input type='checkbox' checked={s.required} onChange={(e) => updateFieldValue(e, i, "required")} /></td>
 										</tr>
 										{s.preRequisites && s.preRequisites.length > 0 &&
-											<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white'}}>
-												<td colSpan={6} style={{padding: '10px 0'}}>
+											<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white', textAlign: 'left'}}>
+												<td colSpan={6} style={{padding: '10px'}}>
 													<b>Dependencies:</b>
 													{s.preRequisites.map(spre => {
 														let preReq = master_fields.filter(m => m.field_label === spre.field_label)
@@ -153,6 +156,19 @@ export function CreateFields() {
 												</td>
 											</tr>
 										}
+										{s.validation && s.validation.length > 0 &&
+											<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white', textAlign: 'left'}}>
+												<td colSpan={6} style={{padding: '10px'}}>
+													<b>Validations: </b>
+													{s.validation.map(spre => {
+														return (
+															<span>
+																<span style={{color: 'green'}}>{spre.error_message} </span>
+															</span>
+														)
+													})}
+												</td>
+											</tr>}
 									</>
 								)
 							})}
