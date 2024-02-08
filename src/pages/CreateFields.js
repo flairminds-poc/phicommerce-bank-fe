@@ -4,6 +4,7 @@ import { Components } from "../components";
 import { master_fields } from "../data";
 import { useSelector, useDispatch } from 'react-redux';
 import { updateFormData } from '../redux/formDataSlice';
+import DeleteIcon from '../assets/delete-icon.png';
 
 export function CreateFields() {
 	const reduxFormData = useSelector((state) => state.formData.value)
@@ -55,6 +56,7 @@ export function CreateFields() {
 		let temp = [...selectedFields]
 		let thisField = {
 			...field,
+			order: selectedFields.length + 1,
 			showFieldName: true,
             showField: true,
             showDescription: true,
@@ -65,6 +67,13 @@ export function CreateFields() {
 		setFieldSearchText('')
 	}
 
+	const deleteField = (e, index) => {
+		e.preventDefault();
+		let temp = [...selectedFields]
+		temp.splice(index, 1)
+		setSelectedFields(temp)
+	}
+
 	const saveTab = (e) => {
 		setSavingTab(true)
 		e.preventDefault()
@@ -72,7 +81,13 @@ export function CreateFields() {
 		if (reduxFormData.tabs) {
 			temp = [...reduxFormData.tabs]
 		}
-		let thisTabData = { tab_name: tabName, tab_desc: tabDesc, fields: selectedFields }
+		let order = 1
+		if (!temp || temp.length === 0) order = 1
+		else {
+			if (location.state && location.state.index >= 0) order = location.state.index + 1
+			else order = temp.length + 1
+		}
+		let thisTabData = { tab_name: tabName, tab_desc: tabDesc, order: order, fields: selectedFields }
 		if (!temp || temp.length === 0) {
 			temp = [thisTabData]
 		} else {
@@ -83,13 +98,13 @@ export function CreateFields() {
 			}
 		}
 		dispatch(updateFormData({ ...reduxFormData, tabs: temp }))
-		setTimeout(() => {setSavingTab(false); navigate('/createForm')}, 1000);
+		setTimeout(() => {setSavingTab(false); navigate('/createForm')}, 500);
 	}
 
     return (
         <div>
 			<div style={{margin: 'auto', width: '95%', padding: '0 0 5% 0'}}>
-				<div style={{margin: '2% 0'}}>
+				<div style={{margin: '2%'}}>
 					<div style={{display: 'flex', flexDirection: 'column', gap: '15px', backgroundColor: '#EBEDF4', padding: '25px 15px', borderRadius: '5px', margin: '10px 0'}}>
 						<div>
 							<Components.Input placeholder="Enter tab name" value={tabName} onChange={(e) => setTabName(e.target.value)} />
@@ -116,11 +131,12 @@ export function CreateFields() {
 						<thead style={{backgroundColor: '#EBEDF4'}}>
 							<th style={{width: '15%', padding: '7px 0', borderRadius: '5px 0 0 0'}}>Field name</th>
 							<th style={{width: '25%', padding: '7px 0'}}>Description</th>
-							<th style={{width: '10%', padding: '7px 0'}}>Input type</th>
-							<th style={{width: '20%', padding: '7px 0'}}>Value Options</th>
+							<th style={{width: '9%', padding: '7px 0'}}>Input type</th>
+							<th style={{width: '18%', padding: '7px 0'}}>Value Options</th>
 							<th style={{width: '10%', padding: '7px 0'}}>Show<br/>Field Name</th>
 							<th style={{width: '10%', padding: '7px 0'}}>Show<br/>Description</th>
-							<th style={{width: '10%', padding: '7px 0', borderRadius: '0 5px 0 0'}}>Required</th>
+							<th style={{width: '8%', padding: '7px 0'}}>Required</th>
+							<th style={{width: '5%', padding: '7px 0', borderRadius: '0 5px 0 0'}}></th>
 						</thead>
 						<tbody>
 							{selectedFields && selectedFields.map((s, i) => {
@@ -132,12 +148,12 @@ export function CreateFields() {
 										<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white'}}>
 											<td style={{padding: '10px 0'}} rowSpan={rowspan}>{s.display_name}</td>
 											<td style={{padding: '10px 0'}}>{s.description}</td>
-											<td>{s.input_type}</td>
-											<td>{s.options?.join(', ')}</td>
-											{/* <td><input type='checkbox' }/></td> */}
+											<td style={{padding: '10px 0'}}>{s.input_type}</td>
+											<td style={{padding: '10px 0'}}>{s.options?.join(', ')}</td>
 											<td><input type='checkbox' checked={s.showFieldName} onChange={(e) => updateFieldValue(e, i, "showFieldName")} /></td>
 											<td><input type='checkbox' checked={s.showDescription} onChange={(e) => updateFieldValue(e, i, "showDescription")} /></td>
 											<td><input type='checkbox' checked={s.required} onChange={(e) => updateFieldValue(e, i, "required")} /></td>
+											<td rowSpan={rowspan}><button onClick={(e) => deleteField(e, i)} style={{padding: '0', backgroundColor: 'transparent', border: '0', cursor: 'pointer'}}><img src={DeleteIcon} alt="delete" width={20}/></button></td>
 										</tr>
 										{s.preRequisites && s.preRequisites.length > 0 &&
 											<tr style={{backgroundColor: i % 2 === 0 ? '#F3F4EB' : 'white', textAlign: 'left'}}>
@@ -175,8 +191,13 @@ export function CreateFields() {
 						</tbody>
 					</table>
 				</div>
-				<div style={{float: 'right', margin: '1%'}}>
-					<Components.Button onClick={(e) => saveTab(e)} disabled={savingTab}>{savingTab ? '...' : 'Save'}</Components.Button>
+				<div style={{display: 'flex', margin: '1%'}}>
+					<div style={{marginLeft: 'auto'}}>
+						<Components.LinkButton text="Cancel" linkTo='/createForm' />
+					</div>
+					<div style={{margin: '0 2%'}}>
+						<Components.Button onClick={(e) => saveTab(e)} disabled={savingTab}>{savingTab ? '...' : 'Save'}</Components.Button>
+					</div>
 				</div>
 			</div>
 		</div>

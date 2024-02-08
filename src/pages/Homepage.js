@@ -27,7 +27,7 @@ export function Homepage() {
     return (
         <div style={{margin: 'auto', width: '50%', textAlign: 'center', marginTop: '15%'}}>
             {formExist ? <Components.LinkButton linkTo='/createForm'
-                text={`${reduxFormData?.bank_name} - ${reduxFormData?.form_name}`} />: <></>}
+                text={`${reduxFormData?.bank_name || '[bank]'} - ${reduxFormData?.form_name || '[form]'}`} />: <></>}
             <div style={{margin: '15% 0'}}>
                 <Components.LinkButton text="CREATE NEW FORM" linkTo='/createForm' buttonAction={() => dispatch(updateFormData({}))} />
             </div>

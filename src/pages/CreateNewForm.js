@@ -28,6 +28,9 @@ export function CreateNewForm() {
 
     return (
         <div style={{margin: '2% 0'}}>
+            <div style={{width: '70%', margin: '1% auto'}}>
+                <Components.LinkButton customStyle={{backgroundColor: 'grey'}} text="Home" linkTo='/' />
+            </div>
             <div style={{border: '1px solid grey', borderRadius: '5px', minWidth: '500px', width: '70%', margin: 'auto', padding: '7px'}}>
                 <form>
                     <div style={{fontWeight: 'bold', textAlign: 'center', backgroundColor: '#EBEDF4', padding: '10px', borderRadius: '5px'}}>

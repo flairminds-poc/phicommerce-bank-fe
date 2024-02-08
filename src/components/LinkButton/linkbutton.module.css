@@ -1,0 +1,14 @@
+.btn {
+    background-color: #36D4FF;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.linkCss {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 9px 25px;
+    font-weight: bold
+}

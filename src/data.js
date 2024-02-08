@@ -195,6 +195,6 @@ export const master_fields = [{
 		key: 'value_check',
 		type: 'equal',
 		field_label: 'password',
-		error_message: 'Password does not match.'
+		error_message: 'Passwords should match.'
 	}]
 }]
