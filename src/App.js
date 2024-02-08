@@ -11,8 +11,8 @@ function App() {
 					<Route path="/" element={<PageLayout />}>
 						<Route path="/" element={<Pages.Homepage />} />
 						<Route path="createForm/addFields" element={<Pages.CreateFields/>} />
-						<Route path="createForm" element={<Pages.CreateNewForm/>}>
-						</Route>
+						<Route path="createForm" element={<Pages.CreateNewForm/>} />
+						<Route path="masterFields" element={<Pages.MasterFields/>} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

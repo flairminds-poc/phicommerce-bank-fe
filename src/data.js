@@ -56,7 +56,7 @@ export const master_fields = [{
 	description: '',
 	input_type: 'checkbox',
 	value_type: 'string',
-	options: ['Hindi', 'English', 'Marathi', 'others'],
+	options: ['Hindi', 'English', 'Marathi', 'Others'],
 	validation: []
 }, {
 	id: 5,
@@ -65,7 +65,7 @@ export const master_fields = [{
 	description: '',
 	input_type: 'radio',
 	value_type: 'string',
-	options: ['male', 'female', 'others'],
+	options: ['Male', 'Female', 'Others'],
 	validation: []
 }, {
 	id: 6,
@@ -104,7 +104,7 @@ export const master_fields = [{
 	description: '',
 	input_type: 'select',
 	value_type: 'string',
-	options: ['IT', 'Mechanical', 'Electronics'],
+	options: ['IT', 'Mechanical', 'Electronics', 'Computer Science'],
 	validation: [],
 	preRequisites: [{
 		field_label: 'education',
@@ -142,15 +142,15 @@ export const master_fields = [{
 	validation: []
 }, {
 	id: 11,
-	field_label: 'language',
+	field_label: 'specify_language',
 	display_name: 'Language',
-	description: 'please specify',
+	description: 'please specify language',
 	input_type: 'text',
 	value_type: 'string',
 	validation: [],
 	preRequisites: [{
 		field_label: 'languages',
-		value: 'others'
+		value: 'Others'
 	}]
 }, {
 	id: 12,
@@ -159,7 +159,7 @@ export const master_fields = [{
 	description: '',
 	input_type: 'select',
 	value_type: 'string',
-	options: ['USA', 'UK', 'Others'],
+	options: ['India', 'USA', 'UK','Australia', 'Others'],
 	validation: [],
 	preRequisites: [{
 		field_label: 'citizenship',
@@ -167,26 +167,50 @@ export const master_fields = [{
 	}]
 }, {
 	id: 13,
+	field_label: 'specify_country',
+	display_name: 'Country',
+	description: 'please specify country',
+	input_type: 'text',
+	value_type: 'string',
+	validation: [],
+	preRequisites: [{
+		field_label: 'country',
+		value: 'Others'
+	}]
+}, {
+	id: 14,
 	field_label: 'state',
 	display_name: 'State',
 	description: '',
 	input_type: 'select',
 	value_type: 'string',
-	options: ['Gujarat', 'Maharashtra', 'Karnataka'],
+	options: ['Gujarat', 'Maharashtra', 'Karnataka', 'Bihar', 'Others'],
 	validation: [],
 	preRequisites: [{
 		field_label: 'citizenship',
 		value: 'Indian'
 	}]
 }, {
-	id: 14,
+	id: 15,
+	field_label: 'specify_state',
+	display_name: 'State',
+	description: 'please specify state',
+	input_type: 'text',
+	value_type: 'string',
+	validation: [],
+	preRequisites: [{
+		field_label: 'state',
+		value: 'Others'
+	}]
+}, {
+	id: 16,
 	field_label: 'password',
 	display_name: 'Password',
 	input_type: 'password',
 	value_type: 'string',
 	validation: []
 }, {
-	id: 15,
+	id: 17,
 	field_label: 'confirm_password',
 	display_name: 'Confirm Password',
 	input_type: 'password',
@@ -197,4 +221,43 @@ export const master_fields = [{
 		field_label: 'password',
 		error_message: 'Passwords should match.'
 	}]
+}, {
+	id: 18,
+	field_label: 'income',
+	display_name: 'Annual Income Range',
+	description: '',
+	input_type: 'select',
+	value_type: 'string',
+	options: ['0 - 5 lakhs', '5 - 10 lakhs', '10 - 25 lakhs', '> 25 lakhs'],
+	validation: []
+}, {
+	id: 19,
+	field_label: 'tax_paid',
+	display_name: 'Tax paid last year',
+	description: '',
+	input_type: 'select',
+	value_type: 'string',
+	options: ['0 - 2 lakhs', '2 - 5 lakhs', '5 - 10 lakhs', '> 10 lakhs'],
+	validation: [],
+	preRequisites: [{
+		field_label: 'income',
+		value: '5 - 10 lakhs'
+	}, {
+		logic: 'or',
+		field_label: 'income',
+		value: '10 - 25 lakhs'
+	}, {
+		logic: 'or',
+		field_label: 'income',
+		value: '> 25 lakhs'
+	}]
+}, {
+	id: 20,
+	field_label: 'occupation',
+	display_name: 'Occupation',
+	description: '',
+	input_type: 'select',
+	value_type: 'string',
+	options: ['Salaried', 'Business', 'Student', 'None'],
+	validation: []
 }]
