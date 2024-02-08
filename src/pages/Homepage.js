@@ -20,9 +20,10 @@ export function Homepage() {
 		getFormData()
     // eslint-disable-next-line
 	}, [])
+    console.log(reduxFormData.value);
     return (
         <div style={{margin: 'auto', width: '50%', textAlign: 'center', marginTop: '15%'}}>
-            {reduxFormData ? <Components.LinkButton linkTo='/createForm'
+            {reduxFormData.value ? <Components.LinkButton linkTo='/createForm'
                 text={`${reduxFormData?.bank_name} - ${reduxFormData?.form_name}`} />: <></>}
             <div style={{margin: '15% 0'}}>
                 <Components.LinkButton text="CREATE NEW FORM" linkTo='/createForm' buttonAction={() => dispatch(updateFormData({}))} />
