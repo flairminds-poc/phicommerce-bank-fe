@@ -1,0 +1,101 @@
+.createFormContainer {
+    margin: 2% 0;
+}
+
+.homeBtn {
+    width: 70%;
+    margin: 1% auto;
+}
+
+.formContainer {
+    border: 1px solid gray;
+    border-radius: 5px;
+    min-width: 500px;
+    width: 70%;
+    margin: auto;
+    padding: 7px;
+}
+
+.formHeading {
+    font-weight: bold;
+    text-align: center;
+    background-color: #EBEDF4;
+    padding: 10px;
+    border-radius: 5x;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 0 0 0;
+    padding: 2%;
+}
+
+.descTextArea {
+    width: 350px;
+}
+
+.selectBank {
+    width: 200px;
+    cursor: pointer;
+}
+
+.tableContainer {
+    margin: 15px 0 0 0;
+    padding: 0 2%;
+}
+
+
+.table {
+    text-align: center;
+    width: 100%;
+}
+
+.tHead {
+    background-color: #EBEDF4;
+}
+
+.tHead>th {
+    min-width: 5%;
+    max-width: 15%;
+    padding: 7px 0;
+}
+
+.tHead>th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+.tHead>th :last-child {
+    border-radius: 5px 0 0 0;
+}
+
+.table>tbody>tr>td {
+    padding: 7px 5px;
+}
+
+.evenTableRow {
+    background-color: #F3F4EB;
+}
+
+.oddTableRow {
+    background-color: white;
+}
+
+.noTabAdded {
+    background-color: #F3F4EB;
+}
+
+.noTabAdded>td {
+    padding: 7px 0;
+}
+
+.addTabBtn {
+    margin: 20px 0;
+}
+
+.submitBtn {
+    text-align: right;
+    margin: 15px 0 0 0;
+    padding: 2%;
+}

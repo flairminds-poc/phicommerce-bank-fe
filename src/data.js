@@ -260,4 +260,12 @@ export const master_fields = [{
 	value_type: 'string',
 	options: ['Salaried', 'Business', 'Student', 'None'],
 	validation: []
+}, {
+	id: 21,
+	field_label: 'dob',
+	display_name: 'Date Of Birth',
+	description: '',
+	input_type: 'date',
+	value_type: 'string',
+	validation: []
 }]

@@ -1,0 +1,215 @@
+.mainContainer {
+    margin: auto;
+    width: 95%;
+    padding: 0 0 5% 0;
+}
+
+.headContainer {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #EBEDF4;
+    padding: 25px 115px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.addBtn {
+    background-color: rgba(20, 177, 193, 1);
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.addBtn:hover {
+    background-color: rgba(16, 128, 139, 1);
+    color: white;
+}
+
+.validatioMsg {
+    color: green;
+}
+
+.evenTableRow {
+    background-color: #F3F4EB;
+}
+
+.oddTableRow {
+    background-color: white;
+}
+
+.validationfield {
+    text-align: left;
+}
+
+.DesctextArea {
+    outline: none;  
+    border-radius: 5px;
+    width: 450px;
+    height: 50px;
+
+}
+
+.filteredFieldsDropdown {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #EBEDF4;
+    border-radius: 5px;
+    transition: all 1s ease-in-out;
+}
+
+.dropdownfield {
+    padding: 5px;
+    width: 200px;
+    ;
+}
+
+.table {
+    text-align: center;
+    width: 100%;
+}
+
+.tHead {
+    background-color: #EBEDF4;
+}
+
+.tHead>th {
+    min-width: 5%;
+    max-width: 15%;
+    padding: 7px 0;
+}
+
+.tHead>th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+.tHead>th :last-child {
+    border-radius: 5px 0 0 0;
+}
+
+.table>tbody>tr>td {
+    padding: 7px 5px;
+}
+
+.evenfieldnameinputbox {
+    border-radius: 5px;
+    padding: 3px 0;
+    background-color: #f5f8fc;
+    border: 1px solid #f5f8fc;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.oddfieldnameinputbox {
+    border-radius: 5px;
+    padding: 3px 0;
+    background-color: rgba(245, 245, 245, 0.5);
+    border: 1px solid rgba(245, 245, 245, 0.5);
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.focusBorder {
+    border: 1px solid black;
+}
+.deleteIcon {
+    padding: 10px 5px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.valueOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.valueOptionsTd {
+    width: 20%;
+}
+
+.valueOptions>span {
+    display: flex;
+    align-items: center;
+}
+
+.closeIcon {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 2px 0 5px;
+    text-align: center;
+}
+
+.valueOptions>span {
+    margin-bottom: 0;
+    background-color: rgba(20, 177, 193, 1);
+    color: white;
+    margin-left: 5px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 14px;
+
+}
+
+.addOptionBtn {
+    background-color: rgba(20, 177, 193, 1);
+    color: white;
+    border-radius: 10px;
+    padding: 2px 7px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.addOptionBtn:hover {
+    background-color: rgba(16, 128, 139, 1);
+    color: white;
+}
+
+.optionsinputBoxcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    border-radius: 10px;
+    padding: 2px 0;
+    background-color: white;
+    border: 1px solid black;
+
+}
+
+.optionsInputBox {
+    width: 80%;
+    height: 40%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-left: 6px;
+}
+
+.eveninputbox {
+    background-color: white;
+}
+
+.footer {
+    display: flex;
+    margin: 1%;
+}
+
+.cancelBtn {
+    margin-left: auto;
+}
+
+.saveBtn {
+    margin: 0 2%;
+}
