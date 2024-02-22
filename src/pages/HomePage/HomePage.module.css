@@ -1,0 +1,10 @@
+.mainContainer {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.createformBtn {
+    margin: 15% 0;
+}
