@@ -116,8 +116,9 @@ export function CreateFields() {
 				</div>
 				<div>
 					<div style={{padding: '1%'}}>
-						<div>
+						<div style={{display:"flex",justifyContent:"space-between"}} > 
 							<Components.Input type='text' value={fieldSearchText} onChange={e => setFieldSearchText(e.target.value)} placeholder="Search field"/>
+							<Components.Button onClick={()=>navigate('/layoutForm')}>Create layout</Components.Button>
 						</div>
 						<div style={{position: 'absolute', zIndex: '1', cursor: 'pointer', backgroundColor: 'white', border: '1px solid #EBEDF4', borderRadius: '5px', transition: 'all 1s ease-in-out'}}>
 							{filteredFields.map(f => {
@@ -126,6 +127,7 @@ export function CreateFields() {
 								)
 							})}
 						</div>
+						
 					</div>
 					<table style={{width: '100%', textAlign: 'center'}}>
 						<thead style={{backgroundColor: '#EBEDF4'}}>

@@ -1,0 +1,29 @@
+.input{
+    padding: 0.75rem 0.5rem !important; 
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    margin: 0.75rem 0rem;
+  }
+  .inputContainer{
+    margin: 1rem 0.5rem;
+    padding: 1rem 2rem ;
+    border: 1px solid #7C7C7C;
+    border-style: dashed;
+  }
+  .main_content{
+    margin: 4rem 6%;
+  }
+  .formContainer{
+    margin: 0rem 10rem;
+    width: 400px;
+    background-color: #FAFAFA;
+    padding: 1.5rem 3rem   
+  }     
+  .formInputContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .formOptions{
+    padding: 1rem 0.25rem;
+  }
+      

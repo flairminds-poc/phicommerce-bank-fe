@@ -1,6 +1,6 @@
-import { CreateFields } from "./CreateFields";
-import { CreateNewForm } from "./CreateNewForm";
-import { Homepage } from "./Homepage";
+import { CreateFields } from "./CreateField/CreateFields";
+import { CreateNewForm } from "./CreateNewFrom/CreateNewForm";
+import { Homepage } from "./HomePage/Homepage";
 import { MasterFields } from "./ViewMasterFields";
 
 export const Pages = {
