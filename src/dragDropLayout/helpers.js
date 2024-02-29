@@ -5,25 +5,26 @@ import { ROW, COLUMN, COMPONENT } from "./constants";
 export const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed); // inserting task in new index
+  result?.splice(endIndex, 0, removed); // inserting task in new index
 
   return result;
 };
 
 export const remove = (arr, index) => [
   // part of the array before the specified index
-  ...arr.slice(0, index),
+  ...arr?.slice(0, index),
   // part of the array after the specified index
-  ...arr.slice(index + 1)
+  ...arr?.slice(index + 1)
 ];
 
 export const insert = (arr, index, newItem) => [
+
   // part of the array before the specified index
-  ...arr.slice(0, index),
+  ...arr?.slice(0, index),
   // inserted item
   newItem,
   // part of the array after the specified index
-  ...arr.slice(index)
+  ...arr?.slice(index)
 ];
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
@@ -54,6 +55,7 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
 };
 
 export const removeChildFromChildren = (children, splitItemPath) => {
+  try{
   if (splitItemPath.length === 1) {
     const itemIndex = Number(splitItemPath[0]);
     return remove(children, itemIndex);
@@ -74,12 +76,17 @@ export const removeChildFromChildren = (children, splitItemPath) => {
     )
   };
 
+
   return updatedChildren;
+}catch(err){
+  console.log(err);
+}
 };
 
 export const addChildToChildren = (children, splitDropZonePath, item) => {
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[0]);
+    console.log(children);
     return insert(children, dropZoneIndex, item);
   }
 
@@ -195,6 +202,7 @@ export const handleMoveSidebarComponentIntoParent = (
   item
 ) => {
   let newLayoutStructure;
+  console.log(layout);
   switch (splitDropZonePath.length) {
     case 1: {
       newLayoutStructure = {

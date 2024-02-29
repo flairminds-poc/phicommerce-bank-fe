@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateFormData } from '../../redux/formDataSlice'
 import axios from "axios";
 import styles from './CreateNewFrom.module.css'
+import { useNavigate } from "react-router-dom";
 export function CreateNewForm() {
     const reduxFormData = useSelector((state) => state.formData.value)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const updateReduxFormData = (key, value) => {
         dispatch(updateFormData({ ...reduxFormData, [key]: value }))
@@ -22,7 +24,7 @@ export function CreateNewForm() {
                 window.location.reload()
             }
         } catch (err) {
-            console.log(err.message)
+            console.log(err)
         }
     }
 
@@ -85,6 +87,7 @@ export function CreateNewForm() {
                     </div>
                     <div className={styles.submitBtn} >
                         <Components.Button onClick={(e) => submitForm(e)}>Submit</Components.Button>
+                        <Components.Button onClick={()=>navigate('/layoutForm')}>Create layout</Components.Button>
                     </div>
                 </form>
             </div>

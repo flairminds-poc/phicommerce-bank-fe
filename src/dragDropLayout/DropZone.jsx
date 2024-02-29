@@ -76,7 +76,11 @@ const DropZone = ({ data, onDrop, isLast, className }) => {
         className
       )}
       ref={drop}
-    />
+    >
+      {/* {isActive?
+      <p>drop here</p>:""
+      }  */}
+    </div>
   );
 };
 export default DropZone;
