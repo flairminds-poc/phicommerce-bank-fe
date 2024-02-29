@@ -2,6 +2,7 @@ import React from "react";
 import styles from './button.module.css';
 
 const CustomButton = ({ children, onClick = () => {}, disabled = false, customStyle = {} }) => {
+    console.log(disabled);
     return(
         <button onClick={onClick} disabled={disabled} className={styles.btn} style={customStyle}>
             {children}

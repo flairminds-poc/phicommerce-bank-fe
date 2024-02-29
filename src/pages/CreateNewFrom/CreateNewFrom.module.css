@@ -95,7 +95,9 @@
 }
 
 .submitBtn {
-    text-align: right;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
     margin: 15px 0 0 0;
     padding: 2%;
 }

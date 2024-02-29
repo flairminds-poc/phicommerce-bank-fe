@@ -55,6 +55,7 @@ export const master_fields = [{
 	display_name: 'Languages',
 	description: '',
 	input_type: 'checkbox',
+	alignment:"Horizontal",
 	value_type: 'string',
 	options: ['Hindi', 'English', 'Marathi', 'Others'],
 	validation: []
@@ -64,6 +65,7 @@ export const master_fields = [{
 	display_name: 'Gender',
 	description: '',
 	input_type: 'radio',
+	alignment:"Horizontal",
 	value_type: 'string',
 	options: ['Male', 'Female', 'Others'],
 	validation: []
@@ -124,6 +126,7 @@ export const master_fields = [{
 	display_name: 'Marital Status',
 	description: '',
 	input_type: 'radio',
+	alignment:"Horizontal",
 	value_type: 'string',
 	options: ['Married', 'Unmarried'],
 	validation: [],
@@ -137,6 +140,7 @@ export const master_fields = [{
 	display_name: 'Citizenship',
 	description: 'Select your education level',
 	input_type: 'radio',
+	alignment:"Horizontal",
 	value_type: 'string',
 	options: ['Indian', 'Non-Indian'],
 	validation: []

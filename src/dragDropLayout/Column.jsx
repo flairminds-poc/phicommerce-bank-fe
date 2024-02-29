@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const style = {};
-const Column = ({ data, components, handleDrop, path }) => {
+const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => {
   const ref = useRef(null);
 
   
@@ -35,6 +35,9 @@ const Column = ({ data, components, handleDrop, path }) => {
         data={component}
         components={components}
         path={currentPath}
+        tab={tab}
+        layout={layout}
+        setLayout={setLayout}
       />
     );
   };

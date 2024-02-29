@@ -225,8 +225,7 @@ export function CreateFields() {
 					<div style={{ padding: '1%' }}>
 						<div>
 							<Components.Input type='text' value={fieldSearchText} onChange={e => setFieldSearchText(e.target.value)} placeholder="Search field" />
-							<Components.Button onClick={()=>navigate('/layoutForm')}>Create layout</Components.Button>
-						
+							
 						</div>
 						<div className={styles.filteredFieldsDropdown} >
 							{filteredFields.map(f => {
