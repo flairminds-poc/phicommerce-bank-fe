@@ -273,3 +273,410 @@ export const master_fields = [{
 	value_type: 'string',
 	validation: []
 }]
+
+export const data={
+    "form_name": "Create New Bank Account",
+    "form_description": "New User To Bank",
+    "bank_name": "SBI",
+    "tabs": [
+      {
+        "tab_name": "Personal Details",
+        "tab_desc": "Mandatory fields are marked with asterisk(*).",
+        "order": 1,
+        "fields": [
+          {
+            "id": 1,
+            "field_label": "first_name",
+            "display_name": "First name",
+            "description": "[Validation: Only alphabets]",
+            "input_type": "text",
+            "value_type": "string",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[a-zA-Z]+$",
+                "error_message": "First name can only have characters."
+              }
+            ],
+            "order": 1,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": false,
+            "required": true
+          },
+          {
+            "id": 2,
+            "field_label": "last_name",
+            "display_name": "Last name",
+            "description": "[Validation: Only alphabets]",
+            "input_type": "text",
+            "value_type": "string",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[a-zA-Z]+$",
+                "error_message": "Last name can only have characters."
+              }
+            ],
+            "order": 2,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": false,
+            "required": true
+          },
+          {
+            "id": 3,
+            "field_label": "age",
+            "display_name": "Age",
+            "description": "[18 - 70 years]",
+            "input_type": "text",
+            "value_type": "number",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[0-9]+$",
+                "error_message": "Age can only be an integer."
+              },
+              {
+                "logic": "and",
+                "key": "value_check",
+                "type": "greater",
+                "value": "18",
+                "error_message": "Age has to be greater than 18."
+              },
+              {
+                "logic": "and",
+                "key": "value_check",
+                "type": "lesser",
+                "value": "70",
+                "error_message": "Age has to be lesser than 70."
+              }
+            ],
+            "order": 3,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": false,
+            "required": true
+          },
+          {
+            "id": 5,
+            "field_label": "gender",
+            "display_name": "Gender",
+            "description": "",
+            "input_type": "radio",
+            "alignment": "Vertical",
+            "value_type": "string",
+            "options": [
+              "Male",
+              "Female",
+              "Others"
+            ],
+            "validation": [],
+            "order": 4,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": false
+          },
+          {
+            "id": 4,
+            "field_label": "languages",
+            "display_name": "Languages",
+            "description": "",
+            "input_type": "checkbox",
+            "alignment": "Vertical",
+            "value_type": "string",
+            "options": [
+              "Hindi",
+              "English",
+              "Marathi",
+              "Others"
+            ],
+            "validation": [],
+            "order": 5,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": false
+          }
+        ]
+      },
+      {
+        "tab_name": "Education Details",
+        "tab_desc": "All fields are compulsory.",
+        "order": 2,
+        "fields": [
+          {
+            "id": 6,
+            "field_label": "education",
+            "display_name": "Education",
+            "description": "Select your education level",
+            "input_type": "select",
+            "value_type": "string",
+            "options": [
+              "10th pass",
+              "12th pass",
+              "Graduate",
+              "Post-graduate"
+            ],
+            "validation": [],
+            "order": 1,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": true
+          }
+        ]
+      },
+      {
+        "tab_name": "Parent Details",
+        "tab_desc": "Fill all the details *",
+        "order": 3,
+        "fields": [
+          {
+            "id": 1,
+            "field_label": "first_name",
+            "display_name": "First name",
+            "description": "[Validation: Only alphabets]",
+            "input_type": "text",
+            "value_type": "string",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[a-zA-Z]+$",
+                "error_message": "First name can only have characters."
+              }
+            ],
+            "order": 1,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": false
+          },
+          {
+            "id": 2,
+            "field_label": "last_name",
+            "display_name": "Last name",
+            "description": "[Validation: Only alphabets]",
+            "input_type": "text",
+            "value_type": "string",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[a-zA-Z]+$",
+                "error_message": "Last name can only have characters."
+              }
+            ],
+            "order": 2,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": false
+          },
+          {
+            "id": 3,
+            "field_label": "age",
+            "display_name": "Age",
+            "description": "[18 - 70 years]",
+            "input_type": "text",
+            "value_type": "number",
+            "validation": [
+              {
+                "key": "regex_check",
+                "type": "equal",
+                "value": "^[0-9]+$",
+                "error_message": "Age can only be an integer."
+              },
+              {
+                "logic": "and",
+                "key": "value_check",
+                "type": "greater",
+                "value": "18",
+                "error_message": "Age has to be greater than 18."
+              },
+              {
+                "logic": "and",
+                "key": "value_check",
+                "type": "lesser",
+                "value": "70",
+                "error_message": "Age has to be lesser than 70."
+              }
+            ],
+            "order": 3,
+            "showFieldName": true,
+            "showField": true,
+            "showDescription": true,
+            "required": false
+          }
+        ]
+      }
+    ],
+    "Layouts": [
+      {
+        "tabId": 1,
+        "tabName": "Personal Details",
+        "tabDesc": "Mandatory fields are marked with asterisk(*).",
+        "layout": [
+          {
+            "type": "row",
+            "id": "Kxc-7YkSk",
+            "children": [
+              {
+                "type": "column",
+                "id": "EVqWrT8FP",
+                "children": [
+                  {
+                    "id": 1,
+                    "type": "component"
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "id": "lHS8oEpsLX",
+                "children": [
+                  {
+                    "id": "e-1",
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "id": "Mh9pnFltle",
+            "children": [
+              {
+                "id": "yoDsDlnRL",
+                "type": "column",
+                "children": [
+                  {
+                    "id": "e-2",
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "id": "QPjh4CVLK",
+            "children": [
+              {
+                "type": "column",
+                "id": "QGYLjV4SV",
+                "children": [
+                  {
+                    "id": 3,
+                    "type": "component"
+                  },
+                  {
+                    "id": 2,
+                    "type": "component"
+                  }
+                ]
+              },
+              {
+                "id": "n8UieRwAyb",
+                "type": "column",
+                "children": [
+                  {
+                    "id": 5,
+                    "type": "component"
+                  }
+                ]
+              },
+              {
+                "id": "hOG4EyiF0T",
+                "type": "column",
+                "children": [
+                  {
+                    "id": 4,
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabId": 2,
+        "tabName": "Education Details",
+        "tabDesc": "All fields are compulsory.",
+        "layout": [
+          {
+            "type": "row",
+            "id": "kJ_Q5DEI6",
+            "children": [
+              {
+                "type": "column",
+                "id": "puzapTMh5i",
+                "children": [
+                  {
+                    "id": 6,
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabId": 3,
+        "tabName": "Parent Details",
+        "tabDesc": "Fill all the details *",
+        "layout": [
+          {
+            "type": "row",
+            "id": "mT0uon4ZT",
+            "children": [
+              {
+                "type": "column",
+                "id": "Zd5JWtMI9",
+                "children": [
+                  {
+                    "id": 3,
+                    "type": "component"
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "id": "DsIQR3Qg3W",
+                "children": [
+                  {
+                    "id": 1,
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "id": "DOGsamRHH",
+            "children": [
+              {
+                "type": "column",
+                "id": "2qT4N0t6L0",
+                "children": [
+                  {
+                    "id": 2,
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

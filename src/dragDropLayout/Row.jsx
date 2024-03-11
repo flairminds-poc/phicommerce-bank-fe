@@ -5,7 +5,7 @@ import DropZone from "./DropZone";
 import Column from "./Column";
 
 const style = {};
-const Row = ({ data, components, handleDrop, path,tab ,layout,setLayout}) => {
+const Row = ({ data, components, handleDrop, path,tab ,layout,setLayout,tabsData,setTabsData}) => {
   const ref = useRef(null);
 
   const [{ isDragging }, drag] = useDrag({
@@ -34,6 +34,8 @@ const Row = ({ data, components, handleDrop, path,tab ,layout,setLayout}) => {
         tab={tab}
         layout={layout}
         setLayout={setLayout}
+        tabsData={tabsData}
+        setTabsData={setTabsData}
       />
     );
   };
@@ -42,7 +44,7 @@ const Row = ({ data, components, handleDrop, path,tab ,layout,setLayout}) => {
     <div ref={ref} style={{ ...style, opacity }} className="base draggable row">
       {/* {data.id} */}
       <div className="columns">
-        {data.children.map((column, index) => {
+        {data?.children?.map((column, index) => {
           const currentPath = `${path}-${index}`;
 
           return (
@@ -50,7 +52,7 @@ const Row = ({ data, components, handleDrop, path,tab ,layout,setLayout}) => {
               <DropZone
                 data={{
                   path: currentPath,
-                  childrenCount: data.children.length,
+                  childrenCount: data?.children?.length,
                 }}
                 onDrop={handleDrop}
                 className="horizontalDrag"

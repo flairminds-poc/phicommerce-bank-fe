@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const style = {};
-const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => {
+const Column = ({ data, components, handleDrop, path,tab,layout,setLayout,tabsData,setTabsData }) => {
   const ref = useRef(null);
 
   
@@ -38,6 +38,8 @@ const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => 
         tab={tab}
         layout={layout}
         setLayout={setLayout}
+        tabsData={tabsData}
+        setTabsData={setTabsData}
       />
     );
   };
@@ -48,8 +50,9 @@ const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => 
       style={{ ...style, opacity }}
       className="base draggable column"
     >
+       {/* <button ref={ref} className="draggable" type="button">drag</button> */}
       {/* {data.id} */}
-      {data.children.map((component, index) => {
+      {data?.children?.map((component, index) => {
         const currentPath = `${path}-${index}`;
 
         return (
@@ -57,7 +60,7 @@ const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => 
             <DropZone
               data={{
                 path: currentPath,
-                childrenCount: data.children.length
+                childrenCount: data?.children?.length
               }}
               onDrop={handleDrop}
             />
@@ -67,8 +70,8 @@ const Column = ({ data, components, handleDrop, path,tab,layout,setLayout }) => 
       })}
       <DropZone
         data={{
-          path: `${path}-${data.children.length}`,
-          childrenCount: data.children.length
+          path: `${path}-${data?.children?.length}`,
+          childrenCount: data?.children?.length
         }}
         onDrop={handleDrop}
         isLast

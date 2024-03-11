@@ -11,28 +11,31 @@ body {
 
 .sideBar {
   flex: 0 0 1;
-  width: 200px;
+  width: 20%;
   padding: 10px;
-  border-right: 1px solid #111;
+  /* border-right: 1px solid #111; */
   min-height: 100vh;
   max-height: auto;
-  background: #e1e1e1;
+  background: #F6F8F9;
 }
 
 .sideBarItem {
-  border: 1px solid #000;
-  border-radius: 3px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
   height: auto;
   padding: 10px;
   margin-top: 10px;
-  background: #ccc;
+  background: white;
 }
 
 .page {
   flex: 1 1 auto;
+  width: 70%;
   padding: 0 20px;
-  margin: 20px;
-  border: 1px solid black;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #E9EEF3;
+  border-radius: var(--border-radius);
 }
 
 .dropZone {
@@ -68,14 +71,14 @@ body {
 }
 
 .column {
-  border: 1px solid rgb(0, 0, 255);
+  /* border: 1px solid rgb(0, 0, 255); */
   flex: 1 1 100%;
   /* padding: 10px; */
 }
 
 .columns {
   display: flex;
-  padding: 10px 0;
+  /* padding: 10px 0; */
 }
 
 .columnContainer {
